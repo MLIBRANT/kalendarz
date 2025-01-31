@@ -7,7 +7,7 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -41,16 +41,21 @@ h1 {
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 5px; /* Zmniejszona przerwa między dniami */
     margin-bottom: 20px;
 }
 
 .day {
-    padding: 10px;
+    padding: 15px 10px; /* Większy padding w pionie */
     border: 1px solid #ccc;
     text-align: center;
     background-color: #f9f9f9;
     position: relative;
+    font-size: 14px;
+    min-height: 60px; /* Minimalna wysokość kafelka */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .day.empty {
@@ -70,10 +75,13 @@ h1 {
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
-    padding: 5px;
+    padding: 10px;
     border-radius: 4px;
     white-space: pre-line;
     z-index: 10;
+    font-size: 12px;
+    min-width: 150px;
+    word-wrap: break-word;
 }
 
 .form-container {
@@ -108,4 +116,59 @@ button {
 
 button:hover {
     background-color: #218838;
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .calendar-controls {
+        flex-direction: row; /* Przyciski pozostają w jednym rzędzie */
+        align-items: center;
+    }
+
+    .calendar-controls button {
+        margin: 0 5px; /* Mniejszy margines między przyciskami */
+        padding: 8px; /* Mniejszy padding dla przycisków */
+        font-size: 14px; /* Mniejsza czcionka w przyciskach */
+    }
+
+    #calendar {
+        gap: 3px; /* Jeszcze mniejsza przerwa między dniami */
+    }
+
+    .day {
+        padding: 20px 10px; /* Większy padding w pionie na mobilnych */
+        font-size: 12px; /* Mniejsza czcionka w dniach */
+        min-height: 80px; /* Większa minimalna wysokość na mobilnych */
+    }
+
+    .day.has-event:hover::after {
+        font-size: 10px; /* Mniejsza czcionka w tooltipie na mobilnych */
+        max-width: 120px; /* Mniejsza szerokość tooltipa na mobilnych */
+    }
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.day.empty {
+    background-color: #f9f9f9;
+    border: none;
+}
+
+.day.has-event {
+    background-color: #e0f7fa;
+    cursor: pointer;
 }
