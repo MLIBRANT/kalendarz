@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextMonthButton = document.getElementById('nextMonth');
     const currentMonthYear = document.getElementById('currentMonthYear');
 
-    //Pseudo baza danych 
+    // Pseudo baza danych 
     const events = {
-        "2025-02-07": 
-        [
+        "2025-02-07": [
             {
                 "time": "15:30",
                 "title": "PP",
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 "time": "16:00",
                 "title": "Fizyka",
-                "description": "Egzamin z Fizyki (dla osób z 4.5 i mniej z  labów)"
+                "description": "Egzamin z Fizyki (dla osób z 4.5 i mniej z labów)"
             },
             {
                 "time": "19:45",
@@ -24,16 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 "description": "Egzamin z MRI"
             }
         ],
-        "2025-02-08": 
-        [
+        "2025-02-08": [
             {
                 "time": "17:30",
                 "title": "Algebra",
                 "description": "Egzamin z Algebry ale chuj wie czy napewno na 17:30"
             }
         ],
-        "2025-02-09": 
-        [
+        "2025-02-09": [
             {
                 "time": "11:00",
                 "title": "SO",
@@ -122,4 +119,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Uruchomienie strony z pierwszym wydarzeniem
     renderCalendar(currentDate);
-});
